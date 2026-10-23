@@ -1,0 +1,45 @@
+# Copy this file to config.yaml and fill it in. config.yaml stays on your computer (it is in .gitignore).
+
+paths:
+  footage_dir: ~/Movies/raw-footage        # where your raw talking-head clips live
+  broll_dir: ~/Movies/broll                # your b-roll library (optional)
+  music_dir: ~/Movies/music                # music beds you own or licensed (optional)
+  jobs_dir: ./jobs                         # one folder per video gets made here
+  fonts_dir: ./assets/fonts                # put your caption font files here
+
+resolve:
+  project: My Videos                       # DaVinci Resolve project name
+  timeline_prefix: edit                    # new timelines are named <prefix>-<job>
+  bridge_port: 8765                        # port used by scripts/start_bridge.sh
+  mcp_dir: ""                              # optional: path to a davinci-resolve-mcp checkout
+
+video:
+  fps: 30                                  # frame rate follows the AUDIO of your raw clip
+  width: 1080
+  height: 1920                             # 1920 for shortform (9:16); use 1920x1080 for longform
+  format: shortform                        # shortform | longform
+
+brand:
+  primary_color: "#FFFFFF"
+  accent_color: "#FFD400"
+  font_family: Montserrat
+  font_file: Montserrat-ExtraBold.ttf      # file name inside paths.fonts_dir
+
+captions:
+  look: shadow                             # shadow | border | pill
+  font_size: 72
+  words_per_card: 3
+  center_y: 0.62                           # 0.0 top, 1.0 bottom; keep it below the chin
+  uppercase: false
+  shadow_blur: 12
+  border_px: 6
+  pill_color: "#000000"
+
+music:
+  shortform_db_under_voice: 12
+  longform_db_under_voice: 28
+
+transcription:
+  engine: groq                             # groq (needs GROQ_API_KEY) | whisperx (local)
+  language: en
+  whisperx_python: ""                      # optional: python that has whisperx, blank = .venv

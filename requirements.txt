@@ -1,0 +1,5 @@
+# Python deps the scripts import. whisperx is installed separately by setup.sh (it is big).
+PyYAML>=6.0,<7
+python-dotenv>=1.0,<2
+numpy>=1.26,<3
+Pillow>=10.0,<12
