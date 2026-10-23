@@ -69,12 +69,21 @@ def main():
     npx = shutil.which("npx")
     check("node and npx", bool(node and npx), "Run: brew install node",
           detail=f"{node or '-'} / {npx or '-'}")
+    node_major = 0
+    if node:
+        try:
+            node_major = int(subprocess.run([node, "-p", "process.versions.node.split('.')[0]"],
+                                            capture_output=True, text=True).stdout.strip() or 0)
+        except Exception:
+            node_major = 0
+    check("Node.js 22 or newer (for hyperframes)", node_major >= 22, "Run: brew upgrade node",
+          detail=f"node {node_major or '-'}", required=False)
     hf = shutil.which("hyperframes")
     if hf:
         check("hyperframes CLI", True, "", detail=hf)
     else:
         check("hyperframes CLI", False,
-              "Run: npm i -g hyperframes  (or use npx hyperframes each time)", required=False)
+              "Run: npm install -g hyperframes  (or use npx hyperframes each time)", required=False)
 
     # whisperx (optional)
     try:

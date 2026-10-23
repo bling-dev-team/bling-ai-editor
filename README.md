@@ -49,4 +49,6 @@ them. Never paste a key into any other file.
 
 ## Stuck?
 
+Look up your problem in [docs/troubleshooting.md](docs/troubleshooting.md) first.
+
 Run `.venv/bin/python doctor.py` and send the output to your Bling contact.

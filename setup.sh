@@ -42,13 +42,20 @@ else
 fi
 
 say "hyperframes CLI (node)"
+# The CLI is the unscoped npm package "hyperframes" (run as: npx hyperframes ...).
+# It needs Node.js 22 or newer and FFmpeg.
 if ! command -v npm >/dev/null 2>&1; then
   brew install node
+fi
+NODE_MAJOR="$(node -p 'process.versions.node.split(".")[0]' 2>/dev/null || echo 0)"
+if (( NODE_MAJOR < 22 )); then
+  echo "Node $NODE_MAJOR is too old for hyperframes (needs 22 or newer). Upgrading."
+  brew upgrade node || brew install node
 fi
 if command -v hyperframes >/dev/null 2>&1; then
   echo "hyperframes already installed"
 else
-  npm i -g hyperframes \
+  npm install -g hyperframes \
     || echo "global install failed. You can still run it with: npx hyperframes"
 fi
 

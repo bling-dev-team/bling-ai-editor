@@ -29,9 +29,13 @@ captions:
   look: shadow                             # shadow | border | pill
   font_size: 72
   words_per_card: 3
-  center_y: 0.62                           # 0.0 top, 1.0 bottom; keep it below the chin
+  center_y: 0.5                            # 0.0 top, 1.0 bottom; 0.5 is dead center (default)
   uppercase: false
   shadow_blur: 12
+  shadow_opacity: 0.5
+  shadow_angle: -45                        # degrees
+  shadow_distance: 0.083                   # times the type size
+  shadow_spread: 0.083                     # times the type size
   border_px: 6
   pill_color: "#000000"
 

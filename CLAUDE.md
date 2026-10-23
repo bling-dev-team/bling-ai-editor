@@ -16,6 +16,7 @@ New user? Run `/edit-video`. It walks them through everything.
 | On-screen text, lists, graphics | `docs/principles/text-and-graphics.md` |
 | Music bed and voice cleanup | `docs/principles/music-and-audio.md` |
 | Transcript, word timing, alignment | `docs/principles/alignment.md` |
+| Something is broken | `docs/troubleshooting.md` |
 
 Settings live in `config.yaml` (copy of `config.example.yaml`). Keys live in `.env`. Scripts read both;
 never hardcode a path, a frame rate or a color. Run `python3 doctor.py` when anything breaks.
